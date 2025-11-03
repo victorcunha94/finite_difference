@@ -1,18 +1,16 @@
 import numpy as np
 from numpy.linalg import solve
+import matplotlib.pyplot as plt
 
 ################# Geração da malha ####################
 xl, xr, yt, yb = 0, 1, 1,0
-N = 4
-X = np.linspace(xl, xr, N, endpoint=True)
-Y = np.linspace(yt, yb, N, endpoint=True)
-x, y = np.meshgrid(X, Y, indexing='ij')
+N = 51
 dx = (xl - xr)/(N + 1)
 dy = (yt - yb)/(N + 1)
 #######################################################
 
 ##### Criação da Matriz U
-U = np.zeros((N, N ))
+U = np.zeros(( N, N ))
 
 #Condição inicial
 def init(x, y):
@@ -22,22 +20,19 @@ def init(x, y):
 
 #Condição de contorno
 def cc(U):
-  U[0, :]  = 2 # Top
-  U[:,-1]  = 1 # Right
-  U[-1,:]  = 1 # Bottom
-  U[:, 0]  = 2 # Left
+  U[0, :]  = 0 # Top
+  U[:,-1]  = 0 # Right
+  U[-1,:]  = 0 # Bottom
+  U[:, 0]  = 0 # Left
   return U
 
 U0 = cc(U)
 
-print(U0)
 U0_vetor = np.reshape(U0, N*N)
-print(U0_vetor)
 
 
-######### Discretização da equação de Poisson 2D ##########
 def f(x, y):
-  f = np.sin(2*np.pi*x) + np.sin(2*np.pi*y)
+  f = - np.sin(2*np.pi*x) + np.sin(2*np.pi*y)
   return f
 
 
@@ -63,8 +58,12 @@ def kron(A, B):
   return C
 
 
-def diff_2ord(U0, dx, dy, N):
-  U0 = U0
+def diff_2ord(xl, xr, yt, yb, U0, dx, dy, N, f):
+  X = np.linspace(xl, xr, N, endpoint=True)
+  Y = np.linspace(yt, yb, N, endpoint=True)
+  x, y = np.meshgrid(X, Y, indexing='ij')
+
+
 
   a_local = 4 * np.ones(N)
   b_local = -1 * np.ones(N - 1)
@@ -85,30 +84,21 @@ def diff_2ord(U0, dx, dy, N):
 
   ##### A e b #####
   A = (kron(I, T) + kron(S, I))/(dx*dy)**2
-  b = U0
-  b = np.reshape(b, N*N)
+  i = f(x, y)
+  i = np.reshape(i, N*N)
 
   #Solução do sistema linear A*U = b
 
-  u = solve(A, b)
+  u = solve(A, i)
 
-  return u
-
-
-def jacobi(U, Unew, dx, dy, N):
-  U = U[0]
-  Unew = Unew[0]
-  for k in range(0, 4000):
-    for i in range(N - 1):
-      for j in range(N - 1):
-        Unew[i, j] = 0.25*(U[i - 1, j] + U[i + 1, j] + U[i, j + 1] + dx*dy*f(i, j) )
-        U[i, j] = Unew[i, j]
-  return Unew
-
+  return u, x, y
 
 
 
 # print(U0[0])
-Un = diff_2ord(U0, dx, dy, N)
-# #Un = jacobi(U0, U_new, dx, dy, N)
-print(Un)
+Un, x, y = diff_2ord(xl, xr, yt, yb, U0, dx, dy, N, f)
+u2d = Un.reshape((N, N))
+
+plt.figure(figsize=(5,4))
+plt.pcolormesh(x, y, u2d, cmap='viridis')
+plt.show()
