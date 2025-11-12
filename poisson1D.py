@@ -20,7 +20,6 @@ N = 514 # Número de pontos totais
 x, dx = np.linspace(xi, xf, N+1, retstep = True, endpoint = True)
 
 
-
 ### Declaração da solução analítica ###
 sol_exact = lambda x: x**3
 x_e = np.linspace(xi, xf, 200, endpoint= True)
