@@ -40,7 +40,7 @@ vec_i = np.ones(N - 2)
 
 diagonal_superior  = np.diag(vec_s, -1)
 diagonal_principal = np.diag(vec_p, 0)
-diagonal_inferior  = np.diag(vec_s,1)
+diagonal_inferior  = np.diag(vec_i,1)
 
 
 #Escolhemos aqui dividir dx**2 por A, mas, poderíamos multiplicar F por dx**2

@@ -33,29 +33,29 @@ def taylor_cos(x, n):
 angles = np.arange(-2*np.pi, 2*np.pi, 0.1)
 cos = np.cos(angles)
 
-t_cos = np.zeros(6)
-print(t_cos)
-for k in range(1,6):
-    t_cos[k] = [taylor_cos(angle, k) for angle in angles]
-
-print(t_cos)
-
 fig2, ax = plt.subplots()
 ax.plot(angles, cos)
-plt.plot(angles, t_cos, "-b")
+
+for k in range(1,6):
+    t_cos = [taylor_cos(angle, k) for angle in angles]
+    plt.plot(angles, t_cos, "-b")
+
+print(t_cos)
+
+
 ax.set_ylim([-5.0, 5.0])
 ax.set_xlim([-7.0, 7.0])
 plt.grid()
 plt.show()
 
 # ## Plotagem ##
-# fig1, ax = plt.subplots()
-# ax.set_xlim(-4, 4)
-# ax.set_ylim(0, 20)
-# plt.grid()
-# plt.plot(x, y, "o-b")
-# plt.plot(x, t1)
-# plt.show()
+fig1, ax = plt.subplots()
+ax.set_xlim(-4, 4)
+ax.set_ylim(0, 20)
+plt.grid()
+plt.plot(x, y, "o-b")
+plt.plot(x, t1)
+plt.show()
 #
 # fig2, ax = plt.subplots()
 # ax.plot(angles, cos)
