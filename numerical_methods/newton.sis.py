@@ -2,6 +2,20 @@ import numpy as np
 import sympy 
 import scipy
 
+"""
+Este programa encontra uma solução aproximada para um sistema não linear, utilizando o método de Newton. A Jacobiana aqui é calculada utilizando diferenças finitas progressivas.
+
+** Criar a animação das iterações para visualizar o método convergindo.
+
+** Implementar problemas de Equações Diferenciais 
+
+** Por didática, trocar o loop da montagem da jacobiana para dois loops, percorrendo dos os elementos da matriz
+
+** Implementar outras aproximações de diferenças finitas, por exemplo, diferenças centradas.
+
+** Encontrar uma forma de verificar a solução do sistema.
+
+"""
 tol = 1e-3
 
 def nonlinear_sis(x):
@@ -34,16 +48,16 @@ def Jac(f_nonlinear, x, n):
 x0 = [1,5]
 x_k = x0
 iteration = 0
-norm = 0
-while norm < tol:
+norm = 20
+while norm > tol:
     A = Jacobiana(nonlinear_sis, x_k)  
     F_x = nonlinear_sis(x_k)
-    s_k = np.linalg.solve(A, F_x)
+    s_k = np.linalg.solve(A, -F_x)
     x_k = x_k + s_k
-    norm = np.linalg.norm(s_k)
+    norm = np.linalg.norm(F_x, np.inf)
     iteration += 1
  
  
-print(s_k)
+print(f'Solução do sistema é dada por: {x_k}')
 print(norm)
 print(f'{iteration} Iterações')
