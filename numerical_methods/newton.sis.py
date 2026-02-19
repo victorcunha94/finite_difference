@@ -15,6 +15,8 @@ Este programa encontra uma solução aproximada para um sistema não linear, uti
 
 ** Encontrar uma forma de verificar a solução do sistema.
 
+** Analisar o decaimento do erro para diferentes formas de diferenciação automática
+
 """
 tol = 1e-3
 
@@ -28,9 +30,9 @@ def Jacobiana(nonlinear_sis, x0, h=1e-6):
     n = len(x0)
     F_x = nonlinear_sis(x0)
     m = len(F_x)
-    J = np.zeros((m, n))
-    for j in range(n):
-        xh = x0.copy()
+    J = np.zeros((m, n))  
+    for j in range(n): 
+        xh = x0.copy()      
         xh[j] = x0[j] + h
         F_h = nonlinear_sis(xh)
         J[:,j] = (F_h - F_x)/h
@@ -59,5 +61,6 @@ while norm > tol:
  
  
 print(f'Solução do sistema é dada por: {x_k}')
+print(A)
 print(norm)
 print(f'{iteration} Iterações')
