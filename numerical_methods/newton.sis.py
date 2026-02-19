@@ -30,16 +30,20 @@ def Jac(f_nonlinear, x, n):
             J[i,j] = np.gradient(f_nonlinear[i], x[j])
     return J
 
-x0 = [0.1, 0.4]
-eps = 2.0
-x_k = x0
 
-while eps < tol:
+x0 = [1,5]
+x_k = x0
+iteration = 0
+norm = 0
+while norm < tol:
     A = Jacobiana(nonlinear_sis, x_k)  
     F_x = nonlinear_sis(x_k)
     s_k = np.linalg.solve(A, F_x)
-    x_k1 = x_k + s_k
-    eps = x_k1 - x_k
-    
-
+    x_k = x_k + s_k
+    norm = np.linalg.norm(s_k)
+    iteration += 1
+ 
+ 
 print(s_k)
+print(norm)
+print(f'{iteration} Iterações')
