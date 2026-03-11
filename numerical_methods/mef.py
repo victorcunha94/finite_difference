@@ -8,7 +8,7 @@ n_elements = 3
 
 
 def elementos(omega, n_elements):
-    partition = linspace(omega[0], omega[1], n_elements)
+    partition = np.linspace(omega[0], omega[1], n_elements)
     #for i in range(n_elements):
     return partition
 
