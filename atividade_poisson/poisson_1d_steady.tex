@@ -1,0 +1,504 @@
+\documentclass{article}
+ 
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float} % an [H] forces a float (such as algorithm) to appear HERE!
+\usepackage{graphics}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{verbatim}
+
+\marginparwidth 0pt
+\oddsidemargin  0pt
+\evensidemargin  0pt
+\marginparsep 0pt
+\topmargin   0pt
+\textwidth   6.5in
+\textheight  8.5in
+\setlength{\parindent}{0em}
+
+\newenvironment{packed_itemize}{
+\begin{itemize}
+  \setlength{\itemsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{itemize}}
+
+\newenvironment{packed_enumerate}{
+\begin{enumerate}
+  \setlength{\itemsep}{1pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+}{\end{enumerate}}
+
+\definecolor{codeback}{RGB}{235,255,255}
+
+\lstset{ %
+language=Matlab,                % choose the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+numbers=left,                   % where to put the line-numbers
+numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+stepnumber=1,                   % the step between two line-numbers. If it is 1 each line will be numbered
+numbersep=10pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{codeback},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,           % adds a frame around the code
+tabsize=2,          % sets default tabsize to 2 spaces
+captionpos=b,           % sets the caption-position to bottom
+breaklines=true,        % sets automatic line breaking
+breakatwhitespace=false,    % sets if automatic breaks should only happen at whitespace
+escapeinside={(*@}{@*)}          % if you want to add a comment within your code
+}
+
+\begin{document}
+
+\begin{center}
+  \Huge{The steady 1D Poisson equation}\\
+  \Large{MATH1091: ODE methods for a reaction diffusion equation}
+  \normalsize{http://people.sc.fsu.edu/$\sim$jburkardt/classes/math1091\_2020/poisson\_1d\_steady/poisson\_1d\_steady.pdf}
+\end{center}
+
+\hrule
+
+\begin{center}
+  \includegraphics[scale=1.25]{bridge.png}
+  \vskip 0.1in
+  {\it{Fill in the middle to connect the edges.}}
+\end{center}
+\begin{tcolorbox}[colback=red!5,title=The Poisson Problem]
+{\it{Given a time-independent Poisson equation over an interval $[a,b]$, use
+finite differences to create a discrete model of the equation, set
+up the corresponding linear system, display the approximate
+solution and estimate its error.
+}}
+\end{tcolorbox}
+
+\section{A new kind of differential equation}
+
+Previously, we have used differential equations to simulate physical systems that
+evolve in time.  An initial condition specified the starting value of some quantity, 
+and the differential equation described how it changed over time.  Such problems
+are known as {\it{initial value problems}} or {\bf{IVP's}}.
+\vskip 0.1in
+Now we are going to look at differential equations that describe the shape or
+configuration of a quantity that varies over space, instead of time.  To start
+with, our space will be a line segment, such as $a \leq x \leq b$, over which
+the quantity $u(x)$ is to be determined.  The differential equation will involve
+the second derivative, and instead of an initial condition, we will have 
+{\it{boundary conditions}} which describe the value of $u(x)$ or perhaps $u'(x)$
+at the endpoints.  Such a problem is known as a {\it{boundary value problem}} or
+{\bf{BVP}}.  
+\vskip 0.1in
+These models of physical systems arise because we are interested
+in predicting the response of a system to a force, which can often be described
+by a second order differential equation.  The classic example of such a model
+is known as the {\it{Poisson equation}}.  We will start with a simple case, 
+over a 1D spatial domain, with no time variation.  This example is the first step
+towards our goal of studying a more complicated system known as a 
+{\it{reaction diffusion equation}}.
+
+\section{The Time-independent Poisson equation in 1D}
+
+Many laws in science and engineering can be expressed in terms of differential
+equations that are presumed to describe the variation in some quantity $u$
+over a spatial domain $\Omega$.  Usually, one or more additional equations
+are imposed along $\partial \Omega$, the boundary of the region. 
+\vskip 0.1in
+Poisson's equation is one of the most useful ways of analyzing physical problems.
+Versions of this equation can be used to
+model heat, electric fields, gravity, and fluid pressure, in steady and
+time varying cases, and in 1, 2 or 3 spatial dimensions.
+\vskip 0.1in
+We will start by considering a physical system that does not vary in time,
+and extends over a finite one-dimensional interval $\Omega=[a,b]$.  In that case,
+the Poisson equation can be written as
+\begin{displaymath}
+  - u''(x) = f(x) \quad \text{ for all } x \in \Omega
+\end{displaymath}
+Where $f(x)$ is known as a {\it{forcing function}} or {\it{source term}}.  The differential
+equation can be viewed as a model of how the quantity $u$ responds to this force.
+To complete the specification of the problem, boundary conditions are imposed at
+the end points $x=a$ and $x=b$.
+Possible conditions include:
+\begin{align*}
+  \text{\it{Dirichlet:}} \quad & u(x) = \text{ value}\\
+  \text{\it{Neumann:}} \quad &  \frac{\partial u}{\partial x} = \text{ value}\\
+  \text{\it{Robin:}} \quad &  \alpha * u(x) + \beta * \frac{\partial u}{\partial x} = \text{ value} \quad \text{ for some } \alpha, \beta
+\end{align*}
+There is no general technique to compute the exact mathematical solution of all Poisson
+equations.  If we want to use computational techniques, we need a way to transform the
+mathematical problem.  We can replace the interval by a sequence of points, the derivatives
+by finite difference approximations, and create a set of linear equations to be solved.
+The result will be the estimated value of $u(x)$ at a discrete set of points in the interval.
+To determine whether this method gives a good approximation, we can consider some special
+cases where the exact answer is known, and compare this to our computed approximations. 
+
+\section{Discretizing the Poisson equation}
+
+For convenience, we will assume that there is a formula $g(x)$ for the exact solution of
+our problem.  We designate the unknown solution as $u(x)$, so we are saying that
+secretly, we actually know a formula so that $u(x)=g(x)$.  This formula $g(x)$ 
+is strictly for experimental purposes.  It makes it easier to describe boundary conditions, 
+and to compare our computed solution to the exact solution.  In real life problems,
+we won't have the luxury of knowing a formula for the exact solution!
+\vskip 0.1in
+Our domain $\Omega$ is the interior of the interval $[a,b]$.  We assume
+that the Poisson equation holds in the interior, with right hand
+side function $f(x)$.  We will assume Dirichlet conditions at the endpoints,
+and we will be allowed to use our secret exact formula to define these conditions:
+\begin{align*}
+&u(a) = g(a)\\
+&u(b) = g(b)
+\end{align*}
+\vskip 0.1in
+We begin by discretizing the geometry.  That is, we will create a
+grid of $n$ points, or {\it{nodes}}, with spacing $h = \frac{b-a}{n-1}$.  Since
+we are using equal spacing, a 
+typical discrete point $x_i$ is:
+\begin{displaymath}
+  x_i = a + (i-1)*h \quad \text{for } 1 \leq i \leq n
+\end{displaymath}
+and the whole set of nodes could be generated in MATLAB by
+\begin{lstlisting}
+  x = linspace ( a, b, n );
+\end{lstlisting}
+We will seek an approximate solution only at this discrete set of points.
+Thus, our discrete solution will be a vector of $n$ values, not a function.
+We can use the mathematical notation $u_i$ to indicate the value of our
+discrete solution at $x_i$, hoping that $u_i \approx u(x_i)$.
+\vskip 0.1in
+Now we discretize the differential equation and boundary conditions, replacing
+them by a set of $n$ linear equations.  Our first and last equations are associated
+with the boundary points $x_1$ and $x_n$:
+\begin{align*}
+  &u_1 = g(x_1)\\
+  &u_n = g(x_n)
+\end{align*}
+Equations 2 through $n-1$ represent discretized versions of the differential equation.
+At node $i$, we approximate the second derivative $u''$ by the second difference 
+approximation:
+\begin{displaymath}
+  -u''(x_i) \approx \frac{-u(x_{i-1})+2u(x_i)-u(x_{i+1})}{h^2}
+\end{displaymath}
+Our equations 2 through $n-1$ become:
+\begin{displaymath}
+  \frac{-u_{i-1}+2u_{i}-u_{i+1}}{h^2} = f(x_i) \quad \text{for } 1 < i < n
+\end{displaymath}
+For each discrete point $x_i$, we have an explicit formula (at
+boundary points) or an implicit linear equation (at interior points),
+involving our unknown approximate values $u_i$.
+We can think of this combination of conditions on boundary and interior
+points as a linear system of the form:
+\begin{displaymath}
+  A * u = rhs
+\end{displaymath}
+
+It now remains to organize the process of defining the matrix $A$ and
+right hand side $rhs$.  Once this is done, the solution process is a
+relatively straightforward linear algebra task.
+
+\section{Exercise \#1: Write a discretized Poisson equation}
+
+Consider the equation $-u''=f(x)$ over the interval $-2 \leq x \leq 2$ with 
+right hand side $f(x)=-6x$ and exact solution $g(x)=x^3$.  The problem is 
+discretized using 5 evenly spaced nodes $x_i$.  
+\vskip 0.1in
+{\bf{Write down the linear equations of this discretized model.}}
+\vskip 0.1in
+Check your work against {\it{exercise1.txt}}
+
+\section{Assembling the linear system}
+
+We have $n$ equations to construct.  We will associate each equation with
+a node, in a natural way, starting with the leftmost.
+\vskip 0.1in
+Equation 1 at node 1 is the first boundary condition:
+\begin{displaymath}
+  u_{1} = g(x_1)
+\end{displaymath}
+Equations 2 through $n-1$, associated with the corresponding nodes,
+are each a discretized Poisson equation:
+\begin{displaymath}
+  \frac{-u_{i-1}+2u_{i}-u_{i+1}}{h^2} = f(x_i)\\
+\end{displaymath}
+Equation $n$ at node $n$ is the final boundary condition:
+\begin{displaymath}
+  u_{n} = g(x_{n})
+\end{displaymath}
+\vskip 0.1in
+It is helpful to see the pattern that this system of equations forms
+when written in matrix form.  If we suppose $n=5$, then
+the equations have the form $A*u=rhs$:
+\begin{verbatim}
+    <-------------A------------->     <--rhs-->
+    1      2      3      4      5
+  
+1   1      0      0      0      0        g(x1)
+2  -1/h^2  2/h^2 -1/h^2  0      0        f(x2)
+3   0     -1/h^2  2/h^2 -1/h^2  0        f(x3)
+4   0      0     -1/h^2  2/h^2 -1/h^2    f(x4)
+5   0      0      0      0      1        g(x5)
+\end{verbatim}
+Now that we have a system of linear equations, we can solve for the values $u_i$
+in MATLAB by writing
+\begin{lstlisting}[caption = Solving a discretized Poisson equation.]
+u = A \ rhs
+\end{lstlisting}
+
+\section{Exercise \#2: Solve a discretized Poisson equation}
+
+Consider again the equation $-u''=f(x)$ over the interval $-2 \leq x \leq 2$ with 
+$f(x)=-6x$ and $g(x)=x^3$.  The problem is discretized using 5 evenly spaced nodes $x_i$.  
+Previously, you wrote down the linear equations of the discretized model.
+\vskip 0.1in
+Write a MATLAB code that sets up and solves the linear equations for the
+discrete solution values $u_i$.  
+\vskip 0.1in
+We want to compare our discrete solution to the exact solution stored in $g(x)$.
+\vskip 0.1in
+To plot $u_i$, define the 5 discrete nodes $x_i$ using {\tt{linspace()}}.  
+To plot the exact solution, define 101 nodes $x2$ in $-2 \leq x \leq 2$, and
+define $u2=g(x2)$.  
+\vskip 0.1in
+{\bf{Show $(x_i,u_i)$ and $(x2,u2)$ together on one plot.}}
+\vskip 0.1in
+Check your work against {\it{exercise2.m}} and {\it{exercise2.png}}.
+
+\section{The MATLAB code {\tt{poisson\_solve.m}} }
+
+The following program accepts input from the user which defines
+the discretization of an interval, and the right hand side function
+$f(x)$ and exact solution $g(x)$, and returns vectors $x$ and $u$ containing 
+the coordinate and solution values at the grid points.
+\vskip 0.1in
+It is available on the web page as {\it{poisson\_solve.m}}:
+\begin{lstlisting}[caption=poisson\_solve.m]
+function [ x, u ] = poisson_solve ( n, a, b, f, g )
+
+  h = ( b - a ) / ( n - 1 );
+
+  x = linspace ( a, b, n );
+
+  A = zeros ( n, n );
+  rhs = zeros ( n, 1 );
+
+  i = 1;
+  A(i,i) = 1.0;
+  rhs(i) = g ( x(i) );
+
+  for i = 2 : n - 1
+    A(i,i-1)  = - 1.0 / h^2;
+    A(i,i)    =   2.0 / h^2;
+    A(i,i+1)  = - 1.0 / h^2;
+    rhs(i)    = f(x(i));
+  end
+
+  i = n;
+  A(i,i) = 1.0;
+  rhs(i) = g ( x(i) );
+
+  u = A \ rhs;
+
+  return
+end
+\end{lstlisting}
+It is up to the user to set the input quantities that define a particular Poisson problem,
+and to plot the approximation after it is computed and returned.
+
+\section{Exercise \#3: Use poisson\_solve() for a specific problem}
+
+Let {\bf{``arnold''}} be the name of the following Poisson problem:
+\begin{displaymath}
+- u''(x) = - ( 2 x + 5 ) \, e^x
+\end{displaymath}
+over the interval $0 \leq x \leq 5.0$.
+Suppose we know that our exact solution is
+\begin{displaymath}
+  g(x) = ( 2 x + 1 ) \, e^x
+\end{displaymath}
+so that our Dirichlet conditions are
+\begin{align*}
+  &u(0.0) = g(0.0) = 1\\
+  &u(5.0) = g(5.0) = 11 \, e^5 \approx 1632.5
+\end{align*}
+{\bf{Write a code {\tt{arnold.m}} which sets up the arnold problem, calls {\tt{poisson\_solve()}}
+for the solution, and plots the computed and exact solutions together.}}
+\vskip 0.1in
+Check your work against {\it{exercise3.m}} and {\it{exercise3.png}}.
+
+\section{Exercise \#4: Plotting}
+
+How do we report the results of {\tt{poisson\_solve()}}?  Depending on the size of
+the problem, and what we are studying, we might want to see 
+\begin{packed_itemize}
+  \item{a table of $x_i$ and $u_i$;}
+  \item{some numerical measurement of the approximation error;}
+  \item{a plot of the computed solution, and the exact solution, if known;}
+  \item{a table or plot of the approximation error for several different mesh spacings $h$;}
+\end{packed_itemize}
+These kinds of reports are known as {\it{postprocessing}} the data.
+\vskip 0.1in
+A plot of the approximate solution is always informative, especially if the exact
+solution is also known.  Here is how you might have done plotting for your previous
+exercise:
+\begin{lstlisting}[caption=Plotting the approximation.]
+  [ x, u ] = poisson_solve ( n, a, b,  @f, @g );
+  x2 = linspace ( xmin, xmax, 101 );
+  u2 = g(x2);
+  plot ( x, u, x2, u2 );
+\end{lstlisting}
+Although these commands do show the computed and exact solutions, the plot is
+pretty skimpy.  A better plot might include:
+\begin{packed_itemize}
+  \item{grid lines;}
+  \item{labels for the $x$ and $y$ axes;}
+  \item{a title;}
+  \item{the use of markers, instead of a connected line, for the computed data;}
+  \item{lines drawn with more than the default thickness;}
+  \item{lines drawn with appropriate color;}
+  \item{a legend that links each line to its line style;}
+\end{packed_itemize}
+Each of these improvements can be done within MATLAB.
+\begin{center}
+  \includegraphics[scale=0.60]{exercise4.png}
+  \vskip 0.1in
+  {\it{What MATLAB commands made this plot?}}
+\end{center}
+\vskip 0.1in
+{\bf{Try to improve your plotting commands so that you reproduce a plot.}}
+\vskip 0.1in
+Compare your work to {\tt{exercise4.m}}.
+
+\section{Measuring error}
+
+When you are trying to write a program to approximate the solution of a BVP, you can
+expect that each approximation has some error.  What you are hoping is that, if you
+intensify the approximation process, the error will go down, and can be driven as
+close to zero as you can afford.
+\vskip 0.1in
+Thus, we need a way to summarize approximation error.  This will help us to spot
+cases where our code is actually wrong.  It will help us to verify whether the
+error decreases as we increase $n$ (or decrease the spacing $h$).  It will help 
+us to estimate {\it{how fast}} the error decreases as we decrease $h$.  And it will let
+us compare the usefulness of different solvers or approximation techniques.
+\vskip 0.1in
+For our purposes, the error vector is the set of $n$ numbers $u_i - g(x_i)$.  We
+want to summarize this into a single number.  The MATLAB {\tt{norm()}} function is
+not quite the right measurement, because it does not make a fair comparison between
+errors at different values of $n$.  Instead, we will use the closely related, but
+correctly scaled, root-mean-square (RMS) error norm, which in MATLAB is evaluated
+by {\tt{err = rms(u-g(x))}}.
+\vskip 0.1in
+The most common way to use this tool is to solve the same problem repeatedly, using
+a mesh that is twice as fine each time.  Remember the peculiar releationship between
+$n$ and $h$: $h = \frac{1}{n-1}$.  Thus, to get a nice spacing $h$, we typically 
+add 1 to $n$.  A spacing of $h=\frac{1}{10}$ corresponds to $n=11$.  Halving the spacing
+to $h=\frac{1}{20}$ means not-quite-doubling $n$ to $21$.  Keep this minor detail
+in mind when doing such an investigation.
+
+\section{Exercise \#5: How does mesh size $h$ affect error norm?}
+
+In the {\tt{exercise4()}} program, you specified a value for $n$.
+Now we want to write a new program that calls a version of {\tt{exercise4()}} for several
+different values of $n$.  In particular, for the sequence of values 
+$n = 11, 21, 41, 81, 161, 321, 641$, we want to compute the RMS error 
+$err$, and make some kind of report of these values.
+\vskip 0.1in
+How do we create a program {\tt{exercise5.m}} that does this?
+\vskip 0.1in
+Step 1: Modify {\tt{exercise4()}} so that it accepts the value of $n$ as input,
+and returns a quantity {\tt{err}} as output:
+\begin{lstlisting}[caption = New calling sequence]
+function err = exercise4 ( n )
+\end{lstlisting}
+Step 2: Remove the plotting statements from {\tt{exercise4()}}.  Insert a line
+that computes the RMS error:
+\begin{lstlisting}[caption=Compute the RMS error norm.]
+  err = rms ( u' - g(x) );
+\end{lstlisting}
+Note the apostrophe that transposes {\tt{u}} above!  That's so that both {\tt{u'}} and
+{\tt{g(x)}} are row vectors, so that we can combine them.
+Step 3: Create the file {\it{exercise5.m}}, and have it call {\tt{exercise4(n)}} repeatedly,
+supplying the value of $n$.
+\begin{lstlisting}[caption = exercise5 requests many error norms]
+for n = [ 11, 21, 41, 81, 161, 321, 641]
+  err = exercise4 ( n );
+end
+\end{lstlisting}
+Step 4: we want to plot our error norm data.  We can do this in {\it{exercise5.m}}
+by creating an empty vector, and then appending each result
+\begin{lstlisting}[caption=exercise5 saves the RMS error norm in a vector.]
+eplot = [];
+for n = [ 11, 21, 41, 81, 161, 321, 641]
+  err = exercise4 ( n );
+  eplot = [ eplot, err ];
+end
+\end{lstlisting}
+Step 5: Once all the errors have been computed, {\tt{exercise5()}} can make a log-log plot.
+\begin{lstlisting}[caption=exercise5 makes a log-log plot]
+plot ( log ( n - 1 ), log ( err ) );
+\end{lstlisting}
+\vskip 0.1in
+{\bf{Follow these steps to create your program, and generate the error plot.}}
+\vskip 0.1in
+Compare with the files {\it{exercise5.m}} and {\it{exercise5.png}}.
+
+\section{A more complicated equation}
+
+We have seen a very simple version of the Poisson equation.  In some cases,
+the problem being studied will involve not just the second derivative of
+$u$, but also contributions from the solution $u$ or its first derivative $u'$. 
+Such contributions can usually be easily included in the formulation. 
+\vskip 0.1in
+Consider a problem, defined over $0 \leq x \leq \frac{1}{2}$, for which the exact solution 
+is $g(x)=2xe^x$, with right hand side function $f(x)=-4e^x$.  This BVP involves not 
+just the second derivative $u''$ but the solution value $u$ as well:
+\begin{align*}
+&-u''+u=f(x)\\
+&u(0) = g(0)\\
+&u(0.5) = g(0.5)
+\end{align*}
+Writing the discretized equation at node $i$, we have
+\begin{displaymath}
+  \frac{-u_{i-1}+2u_{i}-u_{i+1}}{h^2} + u_{i}= f(x_i)\\
+\end{displaymath}
+This means that the left hand side of the linear equation can be broken
+into three parts:
+\begin{align*}
+  \frac{-u_{i-1}}{h^2} \quad \quad +
+  \frac{2u_{i}}{h^2} + u_{i}  \quad \quad +
+  \frac{-u_{i+1}}{h^2}
+\end{align*}
+so that the nonzero entries in row $i$ of the matrix $A$ are now
+\begin{verbatim}
+    <-------------A------------->     <--rhs-->
+    i-1          i      i+1
+  
+i  -1/h^2   2/h^2 + 1  -1/h^2         f(x_i)
+\end{verbatim}
+In other words, for equations 2 through $n-1$, we have to add an extra term
+of 1 to the $A(i,i)$ entry.
+
+\section{Homework: Solve the equation}
+
+\begin{packed_enumerate}
+  \item{Create {\it{poisson2\_solve.m}} as a copy of {\it{poisson\_solve.m}}. }
+  \item{Modify {\it{poisson2\_solve.m}} by adding 1 to the diagonal matrix elements of
+  rows 2 through $n-1$. }
+  \item{Create {\it{hw1.m}}, which might start as a copy of {\it{exercise3.m}}. }
+  \item{Set $n=21$;}
+  \item{Revise the {\tt{g()}} and {\tt{f()}} functions.}
+  \item{Revise the location of the boundary points. }
+  \item{In {\tt{hw1}}, call {\tt{poisson2\_solve()}} instead of {\tt{poisson2\_solve()}}.}.
+  \item{Plot the computed solution $u$ and exact solution $g(x)$ together.}
+  \item{Run {\tt{hw1()}} and save the plot as a PNG file, {\tt{hw1.png}}.}
+\end{packed_enumerate}
+
+Send your plot {\it{hw1.png}} to me at {\bf{jvb25@pitt.edu}}.
+I would like to see your work by Friday, May 8.
+
+\end{document}
