@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # Construção da malha
 xi, xf = 1, 3
-N = 7 # Número de pontos totais
+N = 7 # Número total de pontos
 x, dx = np.linspace(xi, xf, N, retstep = True, endpoint = True)
 x_centro = np.linspace(xi + dx/2, xf - dx/2, N-1)
 print(x_centro)
@@ -85,10 +85,10 @@ U_interno = solve(A, F)
 
 print(U_interno)
 # Não sei se tem uma forma elegante e até mais inteligente para fazer essa construção de U.
-U = np.zeros(N)
-U[0] = g(xi)
+U       = np.zeros(N)
+U[0]    = g(xi)
 U[1:-1] = U_interno[:]
-U[-1] = g(xf)
+U[-1]   = g(xf)
 
 
 # Cálculo do erro utilizando a norma do máximo

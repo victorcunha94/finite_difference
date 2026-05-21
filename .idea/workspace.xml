@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="660c58ad-50a2-48e9-8aa6-21127c941d4a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/darcy1D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/finite_difference.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/finite_difference.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/darcy1D.py" beforeDir="false" afterPath="$PROJECT_DIR$/darcy1D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/finite_difference/chaps/section01.tex" beforeDir="false" afterPath="$PROJECT_DIR$/finite_difference/chaps/section01.tex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/poisson1D.py" beforeDir="false" afterPath="$PROJECT_DIR$/poisson1D.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taylor.py" beforeDir="false" afterPath="$PROJECT_DIR$/taylor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +43,65 @@
     <commands />
     <urls />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="7.876924643128056E-186" />
+      <entry key="S2" value="1.235667650292639E-46" />
+      <entry key="S5" value="9.846759400332815E-19" />
+      <entry key="S10" value="2.404875458686357E-9" />
+      <entry key="S30" value="0.007201506122069849" />
+      <entry key="S60" value="0.4360793549007736" />
+      <entry key="M2" value="4.431507285259836" />
+      <entry key="M5" value="22.120762575421296" />
+      <entry key="M10" value="43.04171724990221" />
+      <entry key="M15" value="57.171014820024695" />
+      <entry key="M30" value="83.79109116624053" />
+      <entry key="H1" value="108.89272428322963" />
+      <entry key="H2" value="128.08706698333492" />
+      <entry key="H4" value="142.80935333703124" />
+      <entry key="D1" value="166.24731419305246" />
+      <entry key="W1" value="172.79250593476712" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0000000000064309" />
+      <entry key="S30" value="1.0003421048911234" />
+      <entry key="S60" value="1.0379420761996097" />
+      <entry key="M2" value="1.4734224600597932" />
+      <entry key="M5" value="3.3321631698257757" />
+      <entry key="M10" value="5.045932511274861" />
+      <entry key="M15" value="5.930689260151917" />
+      <entry key="M30" value="7.249395904768119" />
+      <entry key="H1" value="8.310695948069956" />
+      <entry key="H2" value="9.046922197460308" />
+      <entry key="H4" value="9.4912602431278" />
+      <entry key="D1" value="9.910221844282852" />
+      <entry key="W1" value="9.987045012358495" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="6.826797903235287E-11" />
+      <entry key="MS500" value="0.009264957026648027" />
+      <entry key="S2" value="0.31024933002265925" />
+      <entry key="S5" value="0.6261585872189314" />
+      <entry key="S10" value="0.7913018329969033" />
+      <entry key="S30" value="0.9323767239942067" />
+      <entry key="S60" value="1.4323902187524171" />
+      <entry key="M2" value="5.868920466582005" />
+      <entry key="M5" value="25.4117007636745" />
+      <entry key="M10" value="48.050378748194944" />
+      <entry key="M15" value="63.068766867573494" />
+      <entry key="M30" value="91.01549582642456" />
+      <entry key="H1" value="117.18648600770724" />
+      <entry key="H2" value="137.12379863707142" />
+      <entry key="H4" value="152.29496775838473" />
+      <entry key="D1" value="176.15650358573345" />
+      <entry key="W1" value="182.77940093783016" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -52,23 +113,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.algebra_linear.executor&quot;: &quot;Run&quot;,
-    &quot;Python.darcy1D.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.matrizes.executor&quot;: &quot;Run&quot;,
-    &quot;Python.poisson1D.executor&quot;: &quot;Run&quot;,
-    &quot;Python.taylor.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/victo/repository/finite_difference&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "LaTeX.section01.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.algebra_linear.executor": "Run",
+    "Python.darcy1D.executor": "Run",
+    "Python.gauss_seidel_poisson1d.executor": "Run",
+    "Python.gauss_seidel_poisson2d.executor": "Run",
+    "Python.jacobi_poisson2d.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.matrizes.executor": "Run",
+    "Python.poisson1D.executor": "Run",
+    "Python.taylor.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "supreme",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/victorcunha/Documentos/repository/finite_difference",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.splitter.proportion": "0.3043185",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\victo\repository\finite_difference" />
@@ -77,8 +154,59 @@
       <recent name="C:\Users\victo\repository\finite_difference\algebra_linear" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.darcy1D">
-    <configuration name="darcy1D" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.gauss_seidel_poisson2d">
+    <configuration default="true" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
+      <texify-bibtex>
+        <compiler />
+        <compiler-path />
+        <compiler-arguments />
+        <envs />
+        <main-file />
+        <aux-dir />
+        <latex-distribution>PROJECT_SDK</latex-distribution>
+      </texify-bibtex>
+      <method v="2" />
+    </configuration>
+    <configuration name="section01 bibliography" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
+      <texify-bibtex>
+        <compiler>BIBTEX</compiler>
+        <compiler-path />
+        <compiler-arguments />
+        <envs>
+          <env name="BIBINPUTS" value="$PROJECT_DIR$/finite_difference/chaps" />
+          <env name="BSTINPUTS" value="$PROJECT_DIR$/finite_difference/chaps:" />
+        </envs>
+        <main-file>$PROJECT_DIR$/finite_difference/chaps/section01.tex</main-file>
+        <aux-dir>$PROJECT_DIR$/out</aux-dir>
+        <latex-distribution>TEXLIVE</latex-distribution>
+      </texify-bibtex>
+      <method v="2" />
+    </configuration>
+    <configuration name="section01" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory" temporary="true">
+      <texify>
+        <compiler>PDFLATEX</compiler>
+        <compiler-path />
+        <pdf-viewer>evince</pdf-viewer>
+        <require-focus>true</require-focus>
+        <viewer-command />
+        <compiler-arguments />
+        <envs />
+        <expand-macros-in-environment-variables>false</expand-macros-in-environment-variables>
+        <before-run-command />
+        <main-file>$PROJECT_DIR$/finite_difference/chaps/section01.tex</main-file>
+        <output-path>$PROJECT_DIR$/out</output-path>
+        <auxil-path>{projectDir}/auxil</auxil-path>
+        <working-directory>{mainFileParent}</working-directory>
+        <compile-twice>true</compile-twice>
+        <output-format>PDF</output-format>
+        <latex-distribution>MODULE_SDK</latex-distribution>
+        <has-been-run>true</has-been-run>
+        <bib-run-config>[BibTeX.section01 bibliography]</bib-run-config>
+        <makeindex-run-config>[]</makeindex-run-config>
+      </texify>
+      <method v="2" />
+    </configuration>
+    <configuration name="gauss_seidel_poisson2d" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="finite_difference" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -91,8 +219,9 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/darcy1D.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gauss_seidel_poisson2d.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -101,7 +230,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="jacobi_poisson2d" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="finite_difference" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -114,31 +243,9 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="matrizes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="finite_difference" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/algebra_linear" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/algebra_linear/matrizes.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/jacobi_poisson2d.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -160,6 +267,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="true" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/poisson1D.py" />
       <option name="PARAMETERS" value="" />
@@ -183,6 +291,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="true" />
       <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/taylor.py" />
       <option name="PARAMETERS" value="" />
@@ -195,18 +304,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.darcy1D" />
+        <item itemvalue="Python.gauss_seidel_poisson2d" />
+        <item itemvalue="LaTeX.section01" />
+        <item itemvalue="Python.jacobi_poisson2d" />
         <item itemvalue="Python.poisson1D" />
         <item itemvalue="Python.taylor" />
-        <item itemvalue="Python.matrizes" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-3944b0c99280-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.127" />
+        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
       </set>
     </attachedChunks>
   </component>
@@ -220,6 +329,9 @@
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -230,5 +342,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
   </component>
 </project>

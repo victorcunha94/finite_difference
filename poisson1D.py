@@ -4,18 +4,18 @@ import matplotlib.pyplot as plt
 """
 Esse programa, resolve a equação de poisson em uma domínio unidimensional 
 
-    u'' = f(x)  para  -2 < x < 2
+    u'' = f(x)  para  -2 < x < 2, onde f(x) = -6x
     
     Com as seguintes condições de contorno
     
     u(xi) = alpha      u(xf) = beta 
 Por conveniência, aplicamos como condição de contorno a função analítica.
-
+* Para resolver numericamente a equação, usamos o método centrado de diferenças finitas.
 """
 
 # Construção da malha
 xi, xf = -2, 2
-N = 514 # Número de pontos totais
+N = 11 # Número de pontos totais
 # N_inter = N - 2
 x, dx = np.linspace(xi, xf, N+1, retstep = True, endpoint = True)
 
