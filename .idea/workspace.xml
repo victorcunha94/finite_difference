@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="660c58ad-50a2-48e9-8aa6-21127c941d4a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/finite_difference.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/finite_difference.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/darcy1D.py" beforeDir="false" afterPath="$PROJECT_DIR$/darcy1D.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/finite_difference/chaps/section01.tex" beforeDir="false" afterPath="$PROJECT_DIR$/finite_difference/chaps/section01.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poisson1D.py" beforeDir="false" afterPath="$PROJECT_DIR$/poisson1D.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gauss_seidel_poisson2d.py" beforeDir="false" afterPath="$PROJECT_DIR$/gs_poisson2d.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numerical_methods/newton.py" beforeDir="false" afterPath="$PROJECT_DIR$/numerical_methods/newton.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +33,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/victorcunha94/finite_difference.git&quot;,
+    &quot;url&quot;: &quot;git@github.com:victorcunha94/finite_difference.git&quot;,
     &quot;accountId&quot;: &quot;62d4b61f-6391-4a5c-99cb-ba5e5cf09783&quot;
   }
 }</component>
@@ -45,61 +43,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="7.876924643128056E-186" />
-      <entry key="S2" value="1.235667650292639E-46" />
-      <entry key="S5" value="9.846759400332815E-19" />
-      <entry key="S10" value="2.404875458686357E-9" />
-      <entry key="S30" value="0.007201506122069849" />
-      <entry key="S60" value="0.4360793549007736" />
-      <entry key="M2" value="4.431507285259836" />
-      <entry key="M5" value="22.120762575421296" />
-      <entry key="M10" value="43.04171724990221" />
-      <entry key="M15" value="57.171014820024695" />
-      <entry key="M30" value="83.79109116624053" />
-      <entry key="H1" value="108.89272428322963" />
-      <entry key="H2" value="128.08706698333492" />
-      <entry key="H4" value="142.80935333703124" />
-      <entry key="D1" value="166.24731419305246" />
-      <entry key="W1" value="172.79250593476712" />
-    </decayedCancelled>
-    <decayedSelected>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
       <entry key="S2" value="1.0" />
       <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0000000000064309" />
-      <entry key="S30" value="1.0003421048911234" />
-      <entry key="S60" value="1.0379420761996097" />
-      <entry key="M2" value="1.4734224600597932" />
-      <entry key="M5" value="3.3321631698257757" />
-      <entry key="M10" value="5.045932511274861" />
-      <entry key="M15" value="5.930689260151917" />
-      <entry key="M30" value="7.249395904768119" />
-      <entry key="H1" value="8.310695948069956" />
-      <entry key="H2" value="9.046922197460308" />
-      <entry key="H4" value="9.4912602431278" />
-      <entry key="D1" value="9.910221844282852" />
-      <entry key="W1" value="9.987045012358495" />
+      <entry key="S10" value="1.000000002316525" />
+      <entry key="S30" value="1.0071122136498603" />
+      <entry key="S60" value="1.433367418088685" />
+      <entry key="M2" value="5.417706229803426" />
+      <entry key="M5" value="23.093180486022277" />
+      <entry key="M10" value="44.014874802905226" />
+      <entry key="M15" value="58.14724300693755" />
+      <entry key="M30" value="84.7736691101313" />
+      <entry key="H1" value="109.88140306906183" />
+      <entry key="H2" value="129.08040841721174" />
+      <entry key="H4" value="143.80564133900108" />
+      <entry key="D1" value="167.24659398300557" />
+      <entry key="W1" value="173.7923989967303" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.02368307135172497" />
+      <entry key="MS500" value="0.47302882336279795" />
+      <entry key="S2" value="0.8293195458144417" />
+      <entry key="S5" value="0.9278734764712827" />
+      <entry key="S10" value="0.9632618940263425" />
+      <entry key="S30" value="0.9879387245305506" />
+      <entry key="S60" value="1.0314872112911306" />
+      <entry key="M2" value="1.4688337763968682" />
+      <entry key="M5" value="3.328008339171593" />
+      <entry key="M10" value="5.042785676421645" />
+      <entry key="M15" value="5.928223268652307" />
+      <entry key="M30" value="7.247888591992345" />
+      <entry key="H1" value="8.309831912668777" />
+      <entry key="H2" value="9.046451896038924" />
+      <entry key="H4" value="9.491013539823689" />
+      <entry key="D1" value="9.910178911611284" />
+      <entry key="W1" value="9.987038831563897" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="6.826797903235287E-11" />
-      <entry key="MS500" value="0.009264957026648027" />
-      <entry key="S2" value="0.31024933002265925" />
-      <entry key="S5" value="0.6261585872189314" />
-      <entry key="S10" value="0.7913018329969033" />
-      <entry key="S30" value="0.9323767239942067" />
-      <entry key="S60" value="1.4323902187524171" />
-      <entry key="M2" value="5.868920466582005" />
-      <entry key="M5" value="25.4117007636745" />
-      <entry key="M10" value="48.050378748194944" />
-      <entry key="M15" value="63.068766867573494" />
-      <entry key="M30" value="91.01549582642456" />
-      <entry key="H1" value="117.18648600770724" />
-      <entry key="H2" value="137.12379863707142" />
-      <entry key="H4" value="152.29496775838473" />
-      <entry key="D1" value="176.15650358573345" />
-      <entry key="W1" value="182.77940093783016" />
+      <entry key="MS100" value="0.023683071353341766" />
+      <entry key="MS500" value="0.47741141508362017" />
+      <entry key="S2" value="1.0866153792780682" />
+      <entry key="S5" value="1.5088694216164595" />
+      <entry key="S10" value="1.7254927964143598" />
+      <entry key="S30" value="1.9084169172536654" />
+      <entry key="S60" value="2.4172634109788653" />
+      <entry key="M2" value="6.847528568479911" />
+      <entry key="M5" value="26.378768359596656" />
+      <entry key="M10" value="49.01978907204225" />
+      <entry key="M15" value="64.04212695650152" />
+      <entry key="M30" value="91.9963637312472" />
+      <entry key="H1" value="118.17419855206097" />
+      <entry key="H2" value="138.1166183145918" />
+      <entry key="H4" value="153.29098321111906" />
+      <entry key="D1" value="177.15573611532724" />
+      <entry key="W1" value="183.77928720021035" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -124,6 +122,8 @@
     "Python.jacobi_poisson2d.executor": "Run",
     "Python.main.executor": "Run",
     "Python.matrizes.executor": "Run",
+    "Python.newton.executor": "Run",
+    "Python.newton.sis.executor": "Run",
     "Python.poisson1D.executor": "Run",
     "Python.taylor.executor": "Run",
     "RunOnceActivity.MCP Project settings loaded": "true",
@@ -141,7 +141,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
     "settings.editor.splitter.proportion": "0.3043185",
     "to.speed.mode.migration.done": "true"
   }
@@ -154,19 +154,7 @@
       <recent name="C:\Users\victo\repository\finite_difference\algebra_linear" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.gauss_seidel_poisson2d">
-    <configuration default="true" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
-      <texify-bibtex>
-        <compiler />
-        <compiler-path />
-        <compiler-arguments />
-        <envs />
-        <main-file />
-        <aux-dir />
-        <latex-distribution>PROJECT_SDK</latex-distribution>
-      </texify-bibtex>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.newton.sis">
     <configuration name="section01 bibliography" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify-bibtex>
         <compiler>BIBTEX</compiler>
@@ -177,36 +165,12 @@
           <env name="BSTINPUTS" value="$PROJECT_DIR$/finite_difference/chaps:" />
         </envs>
         <main-file>$PROJECT_DIR$/finite_difference/chaps/section01.tex</main-file>
-        <aux-dir>$PROJECT_DIR$/out</aux-dir>
+        <aux-dir />
         <latex-distribution>TEXLIVE</latex-distribution>
       </texify-bibtex>
       <method v="2" />
     </configuration>
-    <configuration name="section01" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory" temporary="true">
-      <texify>
-        <compiler>PDFLATEX</compiler>
-        <compiler-path />
-        <pdf-viewer>evince</pdf-viewer>
-        <require-focus>true</require-focus>
-        <viewer-command />
-        <compiler-arguments />
-        <envs />
-        <expand-macros-in-environment-variables>false</expand-macros-in-environment-variables>
-        <before-run-command />
-        <main-file>$PROJECT_DIR$/finite_difference/chaps/section01.tex</main-file>
-        <output-path>$PROJECT_DIR$/out</output-path>
-        <auxil-path>{projectDir}/auxil</auxil-path>
-        <working-directory>{mainFileParent}</working-directory>
-        <compile-twice>true</compile-twice>
-        <output-format>PDF</output-format>
-        <latex-distribution>MODULE_SDK</latex-distribution>
-        <has-been-run>true</has-been-run>
-        <bib-run-config>[BibTeX.section01 bibliography]</bib-run-config>
-        <makeindex-run-config>[]</makeindex-run-config>
-      </texify>
-      <method v="2" />
-    </configuration>
-    <configuration name="gauss_seidel_poisson2d" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="gs_poisson2d" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="finite_difference" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -221,7 +185,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gauss_seidel_poisson2d.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\victo\repository\finite_difference\gs_poisson2d.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -230,7 +194,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="jacobi_poisson2d" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="finite_difference" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -245,7 +209,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/jacobi_poisson2d.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -254,7 +218,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="poisson1D" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="newton" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="finite_difference" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -263,13 +227,37 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/numerical_methods" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/poisson1D.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/numerical_methods/newton.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="newton.sis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="finite_difference" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/numerical_methods" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/numerical_methods/newton.sis.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -304,10 +292,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.gauss_seidel_poisson2d" />
-        <item itemvalue="LaTeX.section01" />
-        <item itemvalue="Python.jacobi_poisson2d" />
-        <item itemvalue="Python.poisson1D" />
+        <item itemvalue="Python.newton.sis" />
+        <item itemvalue="Python.newton" />
+        <item itemvalue="Python.gs_poisson2d" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.taylor" />
       </list>
     </recent_temporary>

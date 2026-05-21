@@ -5,7 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/petsc_env" />
     </content>
-    <orderEntry type="jdk" jdkName="pycoremath" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.13 (finite_difference) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

@@ -51,5 +51,6 @@ petsc_env/
 *.sout.bak
 *.bak
 *.old
+*.xml
 *.~
 *#*

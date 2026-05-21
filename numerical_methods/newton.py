@@ -46,7 +46,7 @@ while tol <= eps:
 y = f(domain)
 xi = np.array(xi)
 yi = f(xi)
-print(f' Convergio com {tol} de tolerância em {iteration} iterações.')
+print(f' Convergiu com {tol} de tolerância em {iteration} iterações.')
 print(xi)
 
 
