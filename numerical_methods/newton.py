@@ -10,8 +10,8 @@ Ainda precisa ser feito:
 * Função tangente precisa plotar a reta cuja taxa de variação é 
   a derivada no ponto de teste.
 * Criar a animação das retas tangentes se aproximando da raíz da função
-
 """
+
 tol = 0.001
 xi = []
 xmin, xmax, ymin, ymax = -5.5, 12.5, -50, 500

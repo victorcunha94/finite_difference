@@ -3,7 +3,8 @@ import sympy
 import scipy
 
 """
-Este programa encontra uma solução aproximada para um sistema não linear, utilizando o método de Newton. A Jacobiana aqui é calculada utilizando diferenças finitas progressivas.
+Este programa encontra uma solução aproximada para um sistema não linear, utilizando o método de Newton. 
+A Jacobiana aqui é calculada utilizando diferenças finitas progressivas.
 
 ** Criar a animação das iterações para visualizar o método convergindo.
 
