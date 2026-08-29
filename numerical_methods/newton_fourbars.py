@@ -2,6 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation, PillowWriter
 
+from numerical_methods.newton import newton_raphson
+
 # Comprimentos dos elos
 a = 1.0   # elo 2 (entrada)
 b = 2.5   # elo 3 (acoplador)

@@ -1,6 +1,7 @@
 import numpy as np
 import sympy 
 import scipy
+from newton import *
 
 """
 Este programa encontra uma solução aproximada para um sistema não linear, utilizando o método de Newton. 
@@ -21,9 +22,20 @@ A Jacobiana aqui é calculada utilizando diferenças finitas progressivas.
 """
 tol = 1e-3
 
+# Comprimentos dos elos
+a = 1.0   # elo 2 (entrada)
+b = 2.5   # elo 3 (acoplador)
+c = 2.0   # elo 4 (saída)
+d = 3.0   # elo 1 (terra)
+
+theta3, theta4 = theta3_theta4
+
+
 def nonlinear_sis(x):
-    f1 = x[0] + x[1] - 3
-    f2 = x[0]**2 + x[1]**2 - 9
+    # f1 = x[0] + x[1] - 3
+    # f2 = x[0]**2 + x[1]**2 - 9
+    f1 = a*np.cos(theta2) + b*np.cos(theta3) - c*np.cos(theta4) - d
+    f2 = a*np.sen(theta2) + b*np.sen(theta3) - c*np.sen(theta4)
     return np.array([f1, f2])
 
 
@@ -38,7 +50,7 @@ def Jacobiana(nonlinear_sis, x0, h=1e-6):
         F_h = nonlinear_sis(xh)
         J[:,j] = (F_h - F_x)/h
     return J
-            
+
 
 def Jac(f_nonlinear, x, n):
     J = np.zeros((n,n))
