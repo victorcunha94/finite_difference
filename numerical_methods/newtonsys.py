@@ -1,7 +1,7 @@
 import numpy as np
 import sympy 
 import scipy
-#from newton import *
+
 
 """
 Este programa encontra uma solução aproximada para um sistema não linear, utilizando o método de Newton. 
@@ -71,7 +71,7 @@ def newtonsys(Ffun, Jacobiana, x0, tol = 1e-3):
         x_k = x_k + s_k
         norm = np.linalg.norm(F, np.inf)
         iteration += 1
-    return x_k
+    return x_k, iteration
 
 # xI = [1,5]
 # x_k, norm = newtonsys(Ffun, Jacobiana, x0)
