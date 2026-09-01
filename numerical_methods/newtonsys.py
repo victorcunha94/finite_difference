@@ -1,7 +1,7 @@
 import numpy as np
 import sympy 
 import scipy
-from newton import *
+#from newton import *
 
 """
 Este programa encontra uma solução aproximada para um sistema não linear, utilizando o método de Newton. 
@@ -19,6 +19,7 @@ A Jacobiana aqui é calculada utilizando diferenças finitas progressivas.
 
 ** Analisar o decaimento do erro para diferentes formas de diferenciação automática
 
+
 """
 tol = 1e-3
 
@@ -28,15 +29,15 @@ b = 2.5   # elo 3 (acoplador)
 c = 2.0   # elo 4 (saída)
 d = 3.0   # elo 1 (terra)
 
-theta3, theta4 = theta3_theta4
-
-
-def nonlinear_sis(x):
-    # f1 = x[0] + x[1] - 3
-    # f2 = x[0]**2 + x[1]**2 - 9
-    f1 = a*np.cos(theta2) + b*np.cos(theta3) - c*np.cos(theta4) - d
-    f2 = a*np.sen(theta2) + b*np.sen(theta3) - c*np.sen(theta4)
-    return np.array([f1, f2])
+# theta3, theta4 = theta3_theta4
+#
+#
+# def Ffun(x):
+#     # f1 = x[0] + x[1] - 3
+#     # f2 = x[0]**2 + x[1]**2 - 9
+#     f1 = a*np.cos(theta2) + b*np.cos(theta3) - c*np.cos(theta4) - d
+#     f2 = a*np.sen(theta2) + b*np.sen(theta3) - c*np.sen(theta4)
+#     return np.array([f1, f2])
 
 
 def Jacobiana(nonlinear_sis, x0, h=1e-6):
@@ -59,21 +60,22 @@ def Jac(f_nonlinear, x, n):
             J[i,j] = np.gradient(f_nonlinear[i], x[j])
     return J
 
+def newtonsys(Ffun, Jacobiana, x0, tol = 1e-3):
+    iteration = 0
+    norm = 20
+    x_k = x0
+    while norm > tol:
+        J = Jacobiana(Ffun, x_k)
+        F = Ffun(x_k)
+        s_k = np.linalg.solve(J, -F)
+        x_k = x_k + s_k
+        norm = np.linalg.norm(F, np.inf)
+        iteration += 1
+    return x_k
 
-x0 = [1,5]
-x_k = x0
-iteration = 0
-norm = 20
-while norm > tol:
-    A = Jacobiana(nonlinear_sis, x_k)  
-    F_x = nonlinear_sis(x_k)
-    s_k = np.linalg.solve(A, -F_x)
-    x_k = x_k + s_k
-    norm = np.linalg.norm(F_x, np.inf)
-    iteration += 1
- 
- 
-print(f'Solução do sistema é dada por: {x_k}')
-print(A)
-print(norm)
-print(f'{iteration} Iterações')
+# xI = [1,5]
+# x_k, norm = newtonsys(Ffun, Jacobiana, x0)
+# print(f'Solução do sistema é dada por: {x_k}')
+# print(x_k)
+# print(norm)
+# print(f'{iteration} Iterações')

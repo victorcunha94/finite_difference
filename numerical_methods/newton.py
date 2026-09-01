@@ -33,16 +33,20 @@ tangente = lambda x: dfdx(x) * x + f(0)
 x0 = 6.8
 xi.append(x0)
 eps = x0
-iteration = 0
 
-while tol <= eps: 
-    x = x0 - f(x0) / dfdx(x0)
-    eps = abs(x0 - x)
-    print(eps)
-    xi.append(x)
-    x0 = x
-    iteration += 1
-    
+
+def newton_raphson(f, dfdx, eps, x0):
+    iteration = 0
+    while tol <= eps:
+        x = x0 - f(x0) / dfdx(x0)
+        eps = abs(x0 - x)
+        print(eps)
+        xi.append(x)
+        x0 = x
+        iteration += 1
+    return xi, iteration
+
+xi, iteration = newton_raphson(f, dfdx, eps, x0)
 y = f(domain)
 xi = np.array(xi)
 yi = f(xi)

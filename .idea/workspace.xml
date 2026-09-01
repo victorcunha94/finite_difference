@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="660c58ad-50a2-48e9-8aa6-21127c941d4a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numerical_methods/newton.sis.py" beforeDir="false" afterPath="$PROJECT_DIR$/numerical_methods/newton.sis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/numerical_methods/newton_fourbars.py" beforeDir="false" afterPath="$PROJECT_DIR$/numerical_methods/newton_fourbars.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numerical_methods/fourbars.gif" beforeDir="false" afterPath="$PROJECT_DIR$/numerical_methods/fourbars.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numerical_methods/newton.py" beforeDir="false" afterPath="$PROJECT_DIR$/numerical_methods/newton.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/numerical_methods/newton.sis.py" beforeDir="false" afterPath="$PROJECT_DIR$/numerical_methods/newtonsys.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,44 +116,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;LaTeX.section01.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.algebra_linear.executor&quot;: &quot;Run&quot;,
-    &quot;Python.darcy1D.executor&quot;: &quot;Run&quot;,
-    &quot;Python.gauss_seidel_poisson1d.executor&quot;: &quot;Run&quot;,
-    &quot;Python.gauss_seidel_poisson2d.executor&quot;: &quot;Run&quot;,
-    &quot;Python.gs_poisson2d.executor&quot;: &quot;Run&quot;,
-    &quot;Python.jacobi_poisson2d.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.matrizes.executor&quot;: &quot;Run&quot;,
-    &quot;Python.newton.executor&quot;: &quot;Run&quot;,
-    &quot;Python.newton.sis.executor&quot;: &quot;Run&quot;,
-    &quot;Python.newton_fourbars.executor&quot;: &quot;Run&quot;,
-    &quot;Python.petsc_head2d.executor&quot;: &quot;Run&quot;,
-    &quot;Python.poisson1D.executor&quot;: &quot;Run&quot;,
-    &quot;Python.taylor.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;supreme&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/victorcunha/Documentos/repository/finite_difference&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.3043185&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "LaTeX.section01.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.algebra_linear.executor": "Run",
+    "Python.darcy1D.executor": "Run",
+    "Python.gauss_seidel_poisson1d.executor": "Run",
+    "Python.gauss_seidel_poisson2d.executor": "Run",
+    "Python.gs_poisson2d.executor": "Run",
+    "Python.jacobi_poisson2d.executor": "Run",
+    "Python.lotka-volterra.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.matrizes.executor": "Run",
+    "Python.newton.executor": "Run",
+    "Python.newton.sis.executor": "Run",
+    "Python.newton_fourbars.executor": "Run",
+    "Python.newtonsys.executor": "Run",
+    "Python.petsc_head2d.executor": "Run",
+    "Python.poisson1D.executor": "Run",
+    "Python.taylor.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "supreme",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/victorcunha/Documentos/repository/finite_difference",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.fileTypes",
+    "settings.editor.splitter.proportion": "0.3043185",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\victo\repository\finite_difference" />
@@ -161,7 +166,7 @@
       <recent name="C:\Users\victo\repository\finite_difference\algebra_linear" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.newton">
+  <component name="RunManager" selected="Python.lotka-volterra">
     <configuration name="section01 bibliography" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify-bibtex>
         <compiler>BIBTEX</compiler>
@@ -208,7 +213,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="lotka-volterra" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="finite_difference" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -217,14 +222,13 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="fenicsx-env" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/numerical_methods" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/numerical_methods/lotka-volterra.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -281,7 +285,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="newton.sis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="newtonsys" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="finite_difference" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -296,7 +300,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="DEBUG_JUST_MY_CODE" value="false" />
       <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/numerical_methods/newton.sis.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/numerical_methods/newtonsys.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -307,11 +311,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.newton" />
+        <item itemvalue="Python.lotka-volterra" />
+        <item itemvalue="Python.newtonsys" />
         <item itemvalue="Python.newton_fourbars" />
-        <item itemvalue="Python.newton.sis" />
+        <item itemvalue="Python.newton" />
         <item itemvalue="Python.gs_poisson2d" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
